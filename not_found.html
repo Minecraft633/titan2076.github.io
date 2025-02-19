@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404</title>
+    <style>
+        body {
+            font-family: "Impact", sans-serif;
+            background-color: #35E5FF;
+            color: #3B69B9;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #countdown {
+            font-family: "Impact", sans-serif;
+            font-size: 12em;
+            color: #3B69B9;
+            text-align: center;
+            width: 600px; /* Adjusted width */
+            height: 235px; /* Adjusted height */
+            margin: auto; /* Center horizontally */
+            padding: 0; /* Remove padding */
+        }
+    </style>
+</head>
+<body>
+
+    <div id="countdown">06:00:00</div>
+  
+    <embed height="0" width="0" autoplay src="https://files.catbox.moe/h096bx.mp3">
+
+    <script>
+        // Set the redirect URL
+        const redirectUrl = "https://titan2076.neocities.org/";
+
+        // Set the countdown time in milliseconds (6 minutes)
+        const countdownTime = 6 * 60 * 1000;
+
+        // Function to start the countdown
+        function startCountdown() {
+            const endTime = Date.now() + countdownTime;
+
+            // Update the countdown every 50 milliseconds
+            const timer = setInterval(() => {
+                const currentTime = Date.now();
+                const remainingTime = endTime - currentTime;
+
+                // Calculate minutes, seconds, and milliseconds
+                const minutes = Math.floor((remainingTime / (1000 * 60)) % 60);
+                const seconds = Math.floor((remainingTime / 1000) % 60);
+                const milliseconds = Math.floor((remainingTime % 1000) / 10); // Display first two digits only
+
+                // Format the time with leading zeros
+                const formattedTime = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}:${milliseconds.toString().padStart(2, '0')}`;
+
+                // Update the countdown display
+                document.getElementById('countdown').textContent = formattedTime;
+
+                // If the countdown reaches zero, redirect the user
+                if (remainingTime <= 0) {
+                    clearInterval(timer);
+                    window.location.href = redirectUrl;
+                }
+            }, 1); // Update every 50 milliseconds
+        }
+
+        // Start the countdown when the page loads
+        window.onload = startCountdown;
+    </script>
+</body>
+</html>

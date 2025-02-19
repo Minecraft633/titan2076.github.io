@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lyra Aerospace</title>
+</head>
+<body>
+
+<h1>Stella Telemetry Computer Minimal Edition 0.79</h1>
+ <h2>Focus Health</h2>
+  <ul>
+  <li><p>Focus Temperature: −273.15 °C</p></li>
+  <li><p>AXIS Temperature: −273.15 °C</p></li>
+  <li><p>DAZ Temperature: −273.15 °C</p></li>
+  <li><p>AERO CAM Temperature: −273.15 °C</p></li>
+  </ul>
+ <h2>Focus Controls</h2> 
+ <label for="password">Password:</label>
+<input id="password" type="text" />
+  <input id="Button1" type="button" value="Access Controls" onclick="passcheck()" />
+<p id="result">
+</p>
+<script> 
+document.getElementById("password").focus();
+
+
+function passcheck(){
+        var password= document.getElementById("password").value;
+
+         if(password == 'LAS92922'){
+            document.getElementById("result").innerText = "Focus has fully landed and deployed on Hale-Bopp, sorry.";
+        }else{
+            alert("invalid password");
+         }
+     }
+
+ function changeFont(){
+   document.getElementById("your element id").fontSize= "30px"
+ }
+</script>
+
+</body>
+</html>
